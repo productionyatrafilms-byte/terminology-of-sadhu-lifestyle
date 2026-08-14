@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-lang-key="title"></title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="./fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css" />
+
+    <style>
+      body {
+        width: 100vw !important;
+        height: 100%;
+        background-image: url("./assets/images/bg-image.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        overflow-x: hidden;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+      }
+
+      .page-title {
+        position: absolute;
+        border: 0.2vw solid #662b36;
+        padding: 0.5vw 1vw;
+        border-radius: 1vw;
+        top: 4%;
+        left: 50%;
+        height: auto;
+        text-align: center;
+        z-index: 10000;
+        transition: opacity 0.8s ease;
+        transform: translateX(-50%);
+        color: #662b36;
+        background-color: white;
+        opacity: 0;
+      }
+
+      .page-title .title {
+        font-size: 4vw;
+        text-align: center;
+        display: block;
+        font-weight: bolder !important;
+      }
+
+      .sub-title {
+        font-size: 2vw !important;
+        font-weight: 400 !important;
+      }
+
+      .pranam-link {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 2vw;
+    bottom: 2vw;
+    width: 9vw;
+    height: auto;
+    text-decoration: none;
+    z-index: 9999;
+    cursor: pointer;
+    transform-origin: center;
+    /* hidden by default — only shown on the last slide via .show */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  .pranam-link.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    animation: pranamPop 1.2s ease-in-out infinite;
+  }
+
+.pranam-link img {
+  position: relative;
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.pranam-link span {
+  position: absolute;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3vw;
+  padding-right: 1vw;
+    font-family: "BalooRegular";
+
+}
+
+/* ✅ safety net: guarantee .hidden actually removes the nav button */
+.swiper-btn.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@keyframes pranamPop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+    </style>
+  </head>
+
+  <body>
+    <a class="home-btn" href="index.html">
+      <img src="./assets/images/home-btn.png" alt="" />
+    </a>
+ <a href="pranam.html" class="pranam-link" id="pranamLink">
+      <img src="./assets/images/arowAsset.png" alt="" />
+      <span data-lang-key="pranam"></span>
+    </a>
+    <div class="page-title">
+      <span class="title" data-lang-key="title"></span>
+      <span class="sub-title" data-lang-key="sub-title"></span>
+    </div>
+
+    <div class="language-container">
+      <div class="english active">E</div>
+      <div class="hindi">H</div>
+      <div class="gujrati">G</div>
+    </div>
+
+    <main>
+      <img src="./assets/images/frame.png" alt="" />
+
+      <div class="flower">
+        <div class="flower-4">
+          <img src="./assets/images/flower-4.png" alt="" />
+        </div>
+        <div class="flower-3">
+          <img src="./assets/images/flower-3.png" alt="" />
+        </div>
+        <div class="flower-2">
+          <img src="./assets/images/flower-2.png" alt="" />
+        </div>
+        <div class="flower-1">
+          <img src="./assets/images/flower-1.png" alt="" />
+        </div>
+
+        <div class="circle">
+          <video
+            class="circle-video"
+            id="circleVideo"
+            src=""
+            loop
+            autoplay
+            muted
+            playsinline
+          ></video>
+
+          <div class="circle-content" id="circleContent">
+            <span class="title" data-lang-key="title"></span>
+            <span class="sub-title" data-lang-key="sub-title"></span>
+            <button class="click" data-lang-key="click">Click</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ── Swiper Panel (right side) ── -->
+    <div class="swiper-panel" id="swiperPanel">
+      <div class="swiper-wrapper-box">
+
+        <!-- ✅ top design — sibling of swiper, outside swiper-wrapper -->
+        <div class="design design-top">
+          <img src="./assets/images/Group 9.png" alt="" />
+        </div>
+
+        <div class="swiper mySwiper" id="mySwiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-1"></div>
+              <div class="slide-sub-text" data-lang-key="slide-1.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-2"></div>
+              <div class="slide-sub-text" data-lang-key="slide-2.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-3"></div>
+              <div class="slide-sub-text" data-lang-key="slide-3.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-4"></div>
+              <div class="slide-sub-text" data-lang-key="slide-4.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-5"></div>
+              <div class="slide-sub-text" data-lang-key="slide-5.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-6"></div>
+              <div class="slide-sub-text" data-lang-key="slide-6.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-7"></div>
+              <div class="slide-sub-text" data-lang-key="slide-7.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-8"></div>
+              <div class="slide-sub-text" data-lang-key="slide-8.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-9"></div>
+              <div class="slide-sub-text" data-lang-key="slide-9.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-10"></div>
+              <div class="slide-sub-text" data-lang-key="slide-10.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-11"></div>
+              <div class="slide-sub-text" data-lang-key="slide-11.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-12"></div>
+              <div class="slide-sub-text" data-lang-key="slide-12.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-13"></div>
+              <div class="slide-sub-text" data-lang-key="slide-13.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-14"></div>
+              <div class="slide-sub-text" data-lang-key="slide-14.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-15"></div>
+              <div class="slide-sub-text" data-lang-key="slide-15.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-16"></div>
+              <div class="slide-sub-text" data-lang-key="slide-16.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-17"></div>
+              <div class="slide-sub-text" data-lang-key="slide-17.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-18"></div>
+              <div class="slide-sub-text" data-lang-key="slide-18.1"></div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-text" data-lang-key="slide-19"></div>
+              <div class="slide-sub-text" data-lang-key="slide-19.1"></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ✅ bottom design — sibling of swiper, outside swiper-wrapper -->
+        <div class="design design-bottom">
+          <img src="./assets/images/Group 10.png" alt="" />
+        </div>
+
+        <!-- custom prev/next buttons -->
+        <div class="swiper-nav">
+          <button class="swiper-btn hidden" id="btnPrev">
+            <img src="./assets/images/perv-btn.png" alt="" />
+          </button>
+          <button class="swiper-btn" id="btnNext">
+            <img src="./assets/images/next-btn.png" alt="" />
+          </button>
+        </div>
+
+        <!-- custom pagination dots -->
+        <div class="swiper-custom-pagination" id="customPagination"></div>
+
+      </div>
+    </div>
+
+    <script
+  src="./assets/js/swiper-bundle.min.js"
+  defer
+></script>
+<script src="./assets/js/app.js" defer></script>
+<script src="./assets/js/djp.js" defer></script>
+
+<!-- ── Audio feedback: click / navigation / home ── -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Preload audio instances so overlapping taps don't cut playback short
+    const clickAudio = new Audio("./audio/click.mp3");
+    const swipeAudio = new Audio("./audio/swipe.mp3");
+    const popAudio = new Audio("./audio/pop.mp3");
+
+    function playSound(baseAudio) {
+      // Clone so rapid repeated clicks always restart cleanly
+      const sound = baseAudio.cloneNode();
+      sound.play().catch(function (err) {
+        console.warn("Audio playback blocked or failed:", err);
+      });
+    }
+
+    // 1) Click button (.click) → click.mp3
+    document.addEventListener("click", function (e) {
+      if (e.target.closest(".click")) {
+        playSound(clickAudio);
+      }
+    });
+
+    // 2) Navigation buttons (#btnPrev, #btnNext) → swipe.mp3
+    const btnPrev = document.getElementById("btnPrev");
+    const btnNext = document.getElementById("btnNext");
+
+    if (btnPrev) {
+      btnPrev.addEventListener("click", function () {
+        playSound(swipeAudio);
+      });
+    }
+
+    if (btnNext) {
+      btnNext.addEventListener("click", function () {
+        playSound(swipeAudio);
+      });
+    }
+
+    // 3) Home button (.home-btn) → pop.mp3
+    const homeBtn = document.querySelector(".home-btn");
+    if (homeBtn) {
+      homeBtn.addEventListener("click", function (e) {
+        // Play pop sound, then let the navigation happen naturally.
+        // Slight delay so the sound isn't cut off by page unload.
+        e.preventDefault();
+        playSound(popAudio);
+        const href = homeBtn.getAttribute("href");
+        setTimeout(function () {
+          window.location.href = href;
+        }, 150);
+      });
+    }
+  });
+</script>
+
+<!-- ── Last slide: show Pranam link + hide Next button ── -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const pranamLink = document.getElementById("pranamLink");
+    const btnNext = document.getElementById("btnNext");
+    const swiperWrapper = document.querySelector("#mySwiper .swiper-wrapper");
+
+    if (!swiperWrapper) return;
+
+    function updateLastSlideState() {
+      const slides = swiperWrapper.querySelectorAll(".swiper-slide");
+      if (!slides.length) return;
+
+      const lastSlide = slides[slides.length - 1];
+      const isLastSlideActive = lastSlide.classList.contains("swiper-slide-active");
+
+      // Pranam link → only on the last slide
+      if (pranamLink) {
+        if (isLastSlideActive) {
+          pranamLink.classList.add("show");
+        } else {
+          pranamLink.classList.remove("show");
+        }
+      }
+
+      // ✅ Next button → hidden on the last slide, visible everywhere else
+      if (btnNext) {
+        if (isLastSlideActive) {
+          btnNext.classList.add("hidden");
+        } else {
+          btnNext.classList.remove("hidden");
+        }
+      }
+    }
+
+    // Run once in case the swiper has already initialized before this script runs
+    updateLastSlideState();
+
+    // Watch for Swiper toggling "swiper-slide-active" on slides as the user navigates
+    const observer = new MutationObserver(updateLastSlideState);
+    observer.observe(swiperWrapper, {
+      attributes: true,
+      attributeFilter: ["class"],
+      subtree: true,
+    });
+  });
+</script>
+  </body>
+</html>

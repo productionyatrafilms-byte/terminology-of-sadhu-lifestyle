@@ -1,0 +1,722 @@
+@import url('https://fonts.googleapis.com/css2?family=Khmer&display=swap');
+
+@font-face {
+  font-family: "BalooRegular";
+  src: url("../../fonts/Baloo Regular 400.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "KhmerMn";
+  src: url("../../fonts/Khmer-MN.ttc");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MPlusRounded-Regular";
+  src: url("../../fonts/MPLUSRounded1c-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "KatibehRegular";
+  src: url("../../fonts/Katibeh-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ITFDevanagari";
+  src: url("../../fonts/ITFDevanagari.ttc") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSansGujaratiRegular";
+  src: url("../../fonts/NotoSansGujarati-Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100vw !important;
+  height: 100%;
+  background-image: url("../images/bg-image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+body[data-lang="hi"] {
+  font-family: "ITFDevanagari"!important;
+}
+
+body[data-lang="gu"] {
+  font-family: "NotoSansGujaratiRegular"!important;
+}
+
+
+.home-btn {
+  position: fixed;
+  top: 2vw;
+  left: 4%;
+  width: 3.5vw;
+  z-index: 1000;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.2s ease;
+}
+
+.home-btn:hover {
+  transform: scale(1.15);
+}
+
+.home-btn img {
+  width: 100%;
+  display: block;
+}
+
+.page-title {
+  position: absolute;
+  border: 0.2vw solid #662B36;
+  /* width: 30%; */
+  padding: 0.5vw 1vw;
+  border-radius: 1vw;
+  top: 1%;
+  left: 50%;
+  height: auto;
+  text-align: center;
+  z-index: 10000;
+  transition: opacity 3s ease;
+  transform: translateX(-50%);
+  color: #662B36;
+  background-color: white;
+  opacity: 0;
+}
+
+.page-title .title {
+  font-size: 4vw;
+  text-align: center;
+  display: block;
+  font-weight: bolder !important;
+  font-family: "KatibehRegular";
+}
+
+.page-title .sub-title {
+  font-size: 2vw !important;
+  font-weight: 400 !important;
+  font-family: "KhmerKn";
+  text-align: center;
+}
+
+[data-lang="hi"] .page-title .title {
+  font-size: 2.5vw;
+}
+
+[data-lang="hi"] .page-title .sub-title {
+  font-size: 1.3vw !important;
+}
+
+[data-lang="gu"] .page-title .title {
+  font-size: 2.5vw;
+}
+
+[data-lang="gu"] .page-title .sub-title {
+  font-size: 1.3vw !important;
+}
+
+
+.language-container {
+  position: fixed;
+  top: 2vw;
+  right: 5%;
+  display: flex;
+  width: 9vw;
+  padding: 0.2vw 0.3vw;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "BalooRegular";
+  border: 0.3vw solid white;
+  background-color: transparent;
+  border-radius: 50vw;
+  pointer-events: auto;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+
+}
+
+.language-container div {
+  width: 2.5vw;
+  height: 2.5vw;
+  font-size: 1.6vw;
+  text-align: center;
+  border: 0.3vw solid white;
+  background: #802922 !important;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-family: "BalooRegular", sans-serif;
+}
+
+.language-container div:hover {
+  background-color: #ffe2a2 !important;
+  color: #802922;
+}
+
+.language-container div.active {
+  background-color: #ffe2a2 !important;
+  color: #802922;
+}
+
+.pranam-container {
+  position: absolute;
+  width: 45vw;
+  height: auto;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pranam-container>.pranam-img {
+  position: relative;
+  width: 85%;
+  height: auto;
+  display: block;
+}
+
+.pranam-container>.pranam-img>img {
+  width: 100%;
+  display: block;
+}
+
+.pranam-img span {
+  z-index: 15;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  font-size: 3.4vw;
+  transform: translateX(-50%);
+  font-family: "BalooRegular";
+  color: #802922;
+}
+
+.pranam-container .home-btn-1 {
+  position: absolute;
+  top: 88%;
+  left: 35%;
+  transform: translateX(-50%);
+  width: 15vw;
+  height: auto;
+  transform: scale(1);
+  transition: transform 0.2s ease;
+}
+
+.home-btn-1:hover {
+  transform: scale(1.2);
+}
+
+.pranam-container .home-btn-1 img {
+  width: 100%;
+  display: block;
+}
+
+.home-btn-1 span {
+  z-index: 15;
+  position: absolute;
+  top: 45%;
+  left: 38%;
+  font-size: 2.5vw;
+  transform: translateY(-50%);
+  font-family: "BalooRegular";
+  color: #821b00;
+}
+
+.back-btn {
+  position: absolute;
+  left: 4%;
+  top: 4%;
+  width: 3vw;
+  height: 3vw;
+  background-color: #802922;
+  border: 0.25vw solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+  z-index: 50;
+}
+
+.back-btn i {
+  color: white;
+  font-size: 1vw;
+  transition: font-size 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  background-color: white;
+}
+
+.back-btn:hover i {
+  font-size: 1.2vw;
+  color: #802922 !important;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+main img {
+  position: relative;
+  width: 98%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 10;
+  pointer-events: none;
+
+}
+
+.flower {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flower,
+.flower-4,
+.flower-3,
+.flower-2,
+.flower-1 {
+  pointer-events: none;
+}
+
+/* ── Flower rotation transition ── */
+.flower-1,
+.flower-2,
+.flower-3,
+.flower-4 {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flower-4 {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.flower-4 img,
+.flower-3 img,
+.flower-2 img,
+.flower-1 img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.flower-3 {
+  position: absolute;
+  width: 85%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+}
+
+.flower-2 {
+  position: absolute;
+  width: 70%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+}
+
+.flower-1 {
+  position: absolute;
+  width: 48%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+
+.circle .title {
+  font-size: 5vw;
+  font-family: "KatibehRegular";
+  text-align: center;
+  line-height: 2;
+}
+
+[data-lang="hi"] .circle .title {
+  font-size:3.5vw!important;
+}
+
+[data-lang="gu"] .circle .title {
+  font-size: 3.5vw!important;
+  line-height: 2!important;
+}
+
+[data-lang="gu"] .circle .sub-title {
+  font-size: 2vw!important;
+}
+
+.circle .sub-title {
+  font-family: 'Khmer' ;
+  font-size: 2.5vw !important;
+}
+
+[data-lang="hi"] .circle .sub-title {
+  font-size:2vw!important;
+}
+
+
+.circle {
+  position: absolute;
+  width: 32vw;
+  height: 32vw;
+  border: 0.8vw solid #662B36;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #662B36;
+  line-height: 1.2;
+  pointer-events: auto;
+}
+
+.circle .click {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "MPlusRounded-Regular";
+  font-size: 2vw;
+  font-weight: bolder;
+  color: #802922;
+  background-color: #FFE2A2;
+  padding: 0.8vw 2vw;
+  border-radius: 3vw;
+  box-shadow: 0vw 0.3vw 0.2vw rgb(61, 61, 61);
+  z-index: 101;
+  pointer-events: auto;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transform: scale(1);
+  transition: transform 0.3s ease-out;
+}
+
+.circle .click:hover {
+  transform: scale(1.05);
+}
+
+/* ── Circle inner content fade ── */
+.circle-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5vw;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+.circle-content.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Video inside circle ── */
+.circle-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity var(--video-fade, 1s) ease-in;
+}
+
+.circle-video.visible {
+  opacity: 1;
+}
+
+/* ── Swiper panel ── */
+.swiper-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(8vw);
+  /* start from right */
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+  z-index: 200;
+}
+
+.swiper-panel.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  /* come to original position */
+}
+
+.swiper-wrapper-box {
+  position: relative;
+  width: 70%;
+  height: 25vw !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mySwiper {
+  width: 100%;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.mySwiper .swiper-wrapper {
+  height: 20vw !important;
+  align-items: stretch !important;
+  display: flex !important;
+  transition-property: transform, height !important;
+}
+
+.mySwiper .swiper-slide {
+  width: 100% !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 1vw 7vw;
+  box-sizing: border-box;
+}
+
+.mySwiper .swiper-slide.swiper-slide-active {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.slide-text,
+.slide-sub-text {
+  width: 100%;
+}
+
+
+.slide-text {
+  font-family: "KatibehRegular";
+  font-size: 3.5vw;
+  color: #B1492D;
+  text-align: center;
+  line-height: 1.2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease;
+}
+
+.slide-sub-text {
+  font-family: "KatibehRegular";
+  font-size: 3.5vw;
+  color: #5E6100;
+  text-align: center;
+  line-height: 1.2;
+  padding-top: 1.5vw;
+  width: 100%;
+  transition: opacity 0.6s ease;
+}
+
+body[data-lang="hi"] .slide-text, body[data-lang="hi"] .slide-sub-text{
+  font-family: "ITFDevanagari"!important;
+    font-size: 2.8vw!important;
+      font-weight: bolder!important;
+
+
+}
+body[data-lang="gu"] .slide-text, body[data-lang="gu"] .slide-sub-text{
+  font-family: "ITFDevanagari"!important;
+      font-size: 2.5vw!important;
+
+}
+
+.swiper-wrapper {
+  height: 70% !important;
+  display: flex !important;
+}
+
+
+
+[data-lang="gu"] .slide-text {
+  font-size: 3vw;
+}
+
+[data-lang="gu"] .slide-sub-text {
+  font-size: 3vw;
+}
+
+/* ── Design images top and bottom ── */
+.design {
+  width: 20vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.design img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* ── Custom nav buttons ── */
+.swiper-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 110%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 300;
+}
+
+.swiper-btn {
+  background-color: transparent;
+  border: none;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.2s ease;
+}
+
+.swiper-btn img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.swiper-btn:hover {
+  transform: scale(1.1);
+}
+
+.swiper-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Custom pagination ── */
+.swiper-custom-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5vw;
+  margin-top: 1.5vw;
+  flex-wrap: wrap;
+  max-width: 80%;
+}
+
+.swiper-custom-pagination .dot {
+  width: 0.8vw;
+  height: 0.8vw;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0.2vw 0.2vw rgb(59, 59, 59);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.swiper-custom-pagination .dot.active {
+  background-color: #802922;
+  transform: scale(1.3);
+}

@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-lang-key="pranam"></title>
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <style>
+    .pranam-video {
+      position: absolute;
+      left: 51%;
+      top: 49%;
+    background-image: url("./assets/images/pranam-bg-1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translate(-50%, -50%);
+    width: 28vw;
+    height: 28vw;
+    border-radius: 50%;
+    background-color: #f6f6f6;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    padding-right: 2.5vw;
+    }
+
+.pranam-video video {
+    width: 90%;
+    height: 83%;
+    object-fit: cover;
+
+    /* Very light feather on ALL edges */
+    -webkit-mask-image:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.8) 2%,
+            rgba(0, 0, 0, 0.95) 4%,
+            black 6%,
+            black 90%,
+            rgba(0, 0, 0, 0.95) 96%,
+            rgba(0, 0, 0, 0.8) 98%,
+            transparent 100%
+        ),
+        linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0, 0, 0, 0.8) 2%,
+            rgba(0, 0, 0, 0.95) 4%,
+            black 6%,
+            black 90%,
+            rgba(0, 0, 0, 0.95) 96%,
+            rgba(0, 0, 0, 0.8) 98%,
+            transparent 100%
+        );
+
+    -webkit-mask-composite: source-in;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.8) 2%,
+            rgba(0, 0, 0, 0.95) 4%,
+            black 6%,
+            black 90%,
+            rgba(0, 0, 0, 0.95) 96%,
+            rgba(0, 0, 0, 0.8) 98%,
+            transparent 100%
+        ),
+        linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0, 0, 0, 0.8) 2%,
+            rgba(0, 0, 0, 0.95) 4%,
+            black 6%,
+            black 90%,
+            rgba(0, 0, 0, 0.95) 96%,
+            rgba(0, 0, 0, 0.8) 98%,
+            transparent 100%
+        );
+
+    mask-composite: intersect;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+  </style>
+
+
+</head>
+
+<body data-lang="en" class="lang-loading">
+  <a href="index.html" class="back-btn">
+    <i class="fa-solid fa-arrow-left"></i>
+  </a>
+
+  <div class="language-container" style="opacity: 1;">
+    <div class="english active">E</div>
+    <div class="hindi">H</div>
+    <div class="gujrati">G</div>
+  </div>
+
+  <div class="pranam-container">
+    <div class="pranam-img">
+      <div class="pranam-video">
+          <video src="./assets/videos/pranam.mp4" autoplay muted></video>
+        </div>
+      <span data-lang-key="pranam"></span>
+      <img src="./assets/images/pranam-img.png" alt="" />
+    </div>
+
+    <a href="index.html" class="home-btn-1">
+      <span data-lang-key="home"></span>
+      <img src="./assets/images/home-btn-1.png" alt="" />
+    </a>
+  </div>
+  <script>
+    const LANG_KEY = "selectedLanguage";
+    const DEFAULT_LANG = "English";
+    const savedLang = localStorage.getItem(LANG_KEY) || DEFAULT_LANG;
+
+    document.documentElement.lang = savedLang;
+
+    if (savedLang === "Hindi") {
+      document.documentElement.setAttribute("data-lang", "hi");
+    } else if (savedLang === "Gujarati") {
+      document.documentElement.setAttribute("data-lang", "gu");
+    } else {
+      document.documentElement.setAttribute("data-lang", "en");
+    }
+  </script>
+  <script>
+    const btnEn = document.querySelector(".english");
+    const btnHi = document.querySelector(".hindi");
+    const btnGu = document.querySelector(".gujrati");
+
+    let translations = {};
+
+    function getSavedLanguage() {
+      return localStorage.getItem(LANG_KEY) || DEFAULT_LANG;
+    }
+
+    function setLangAttribute(lang) {
+      document.documentElement.lang = lang;
+
+      if (lang === "English") {
+        document.body.setAttribute("data-lang", "en");
+        document.documentElement.setAttribute("data-lang", "en");
+      } else if (lang === "Hindi") {
+        document.body.setAttribute("data-lang", "hi");
+        document.documentElement.setAttribute("data-lang", "hi");
+      } else if (lang === "Gujarati") {
+        document.body.setAttribute("data-lang", "gu");
+        document.documentElement.setAttribute("data-lang", "gu");
+      }
+    }
+
+    function setActiveButton(activeBtn) {
+      [btnEn, btnHi, btnGu].forEach((btn) => btn.classList.remove("active"));
+      activeBtn.classList.add("active");
+    }
+
+    function setActiveButtonByLang(lang) {
+      if (lang === "English") {
+        setActiveButton(btnEn);
+      } else if (lang === "Hindi") {
+        setActiveButton(btnHi);
+      } else if (lang === "Gujarati") {
+        setActiveButton(btnGu);
+      }
+    }
+
+    function applyLanguage(lang, save = true) {
+      const langData = translations[lang];
+      if (!langData) return;
+
+      if (save) {
+        localStorage.setItem(LANG_KEY, lang);
+      }
+
+      setLangAttribute(lang);
+      setActiveButtonByLang(lang);
+
+      document.querySelectorAll("[data-lang-key]").forEach((el) => {
+        const key = el.getAttribute("data-lang-key");
+        if (langData[key] !== undefined) {
+          el.innerHTML = String(langData[key]).replace(/\n/g, "<br>");
+        }
+      });
+
+      document.body.classList.remove("lang-loading");
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedLang = getSavedLanguage();
+
+      setLangAttribute(savedLang);
+      setActiveButtonByLang(savedLang);
+
+      fetch("./assets/json/data.json", { cache: "no-store" })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Failed to load JSON");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          translations = data;
+          applyLanguage(savedLang, false);
+        })
+        .catch((err) => {
+          console.error("Error loading translations:", err);
+          document.body.classList.remove("lang-loading");
+        });
+    });
+
+    btnEn.addEventListener("click", () => applyLanguage("English"));
+    btnHi.addEventListener("click", () => applyLanguage("Hindi"));
+    btnGu.addEventListener("click", () => applyLanguage("Gujarati"));
+  </script>
+
+  <!-- ── Audio feedback: page-load pranam sound / back button / home button ── -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const pranamAudio = new Audio("./audio/pranam.mp3");
+      const popAudio = new Audio("./audio/pop.mp3");
+      const homeAudio = new Audio("./audio/11.mp3");
+
+      function playSound(baseAudio) {
+        const sound = baseAudio.cloneNode();
+        sound.play().catch(function (err) {
+          console.warn("Audio playback blocked or failed:", err);
+        });
+      }
+
+      // 1) Play pranam.mp3 once, only on page load (not tied to any click)
+      pranamAudio.play().catch(function (err) {
+        // Most browsers block unmuted autoplay until the user has interacted
+        // with the page at least once. If blocked, play it on the first
+        // interaction anywhere on the page instead (still not a click on
+        // a specific element — just a fallback so the sound isn't lost).
+        console.warn("Autoplay of pranam.mp3 blocked, will retry on first interaction:", err);
+        function playOnce() {
+          pranamAudio.play().catch(function () {});
+          document.removeEventListener("click", playOnce);
+          document.removeEventListener("touchstart", playOnce);
+        }
+        document.addEventListener("click", playOnce, { once: true });
+        document.addEventListener("touchstart", playOnce, { once: true });
+      });
+
+      // 2) Back button (.back-btn) → pop.mp3
+      const backBtn = document.querySelector(".back-btn");
+      if (backBtn) {
+        backBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          playSound(popAudio);
+          const href = backBtn.getAttribute("href");
+          setTimeout(function () {
+            window.location.href = href;
+          }, 150);
+        });
+      }
+
+      // 3) Home button (.home-btn-1) → 11.mp3
+      const homeBtn1 = document.querySelector(".home-btn-1");
+      if (homeBtn1) {
+        homeBtn1.addEventListener("click", function (e) {
+          e.preventDefault();
+          playSound(homeAudio);
+          const href = homeBtn1.getAttribute("href");
+          setTimeout(function () {
+            window.location.href = href;
+          }, 150);
+        });
+      }
+    });
+  </script>
+  <script src="./assets/js/djp.js" defer></script>
+
+</body>
+
+</html>
