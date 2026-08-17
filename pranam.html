@@ -230,7 +230,7 @@
     btnGu.addEventListener("click", () => applyLanguage("Gujarati"));
   </script>
 
-  <!-- ── Audio feedback: page-load pranam sound / back button / home button ── -->
+  <!-- ── Audio feedback: page-load pranam sound / language buttons / back button / home button ── -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const pranamAudio = new Audio("./audio/pranam.mp3");
@@ -260,7 +260,37 @@
         document.addEventListener("touchstart", playOnce, { once: true });
       });
 
-      // 2) Back button (.back-btn) → pop.mp3
+      // 2) Language buttons → Eng.mpeg / Hin.mpeg / Guj.mpeg
+      const langAudios = {
+        ".english": new Audio("./audio/Eng.mpeg"),
+        ".hindi": new Audio("./audio/Hin.mpeg"),
+        ".gujrati": new Audio("./audio/Guj.mpeg")
+      };
+
+      let currentLangSound = null;
+
+      Object.keys(langAudios).forEach(function (selector) {
+        const langBtn = document.querySelector(selector);
+        if (!langBtn) return;
+
+        langBtn.addEventListener("click", function () {
+          // Stop pranam.mp3 and any previous language clip so they don't overlap
+          pranamAudio.pause();
+          pranamAudio.currentTime = 0;
+
+          if (currentLangSound) {
+            currentLangSound.pause();
+            currentLangSound.currentTime = 0;
+          }
+
+          currentLangSound = langAudios[selector].cloneNode();
+          currentLangSound.play().catch(function (err) {
+            console.warn("Language audio playback blocked or failed:", err);
+          });
+        });
+      });
+
+      // 3) Back button (.back-btn) → pop.mp3
       const backBtn = document.querySelector(".back-btn");
       if (backBtn) {
         backBtn.addEventListener("click", function (e) {
@@ -273,7 +303,7 @@
         });
       }
 
-      // 3) Home button (.home-btn-1) → 11.mp3
+      // 4) Home button (.home-btn-1) → 11.mp3
       const homeBtn1 = document.querySelector(".home-btn-1");
       if (homeBtn1) {
         homeBtn1.addEventListener("click", function (e) {
