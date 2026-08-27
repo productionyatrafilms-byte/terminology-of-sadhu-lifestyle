@@ -26,30 +26,19 @@
 
       .page-title {
         position: absolute;
-        border: 0.2vw solid #662b36;
-        width: 18vw;
-        height: 7.5vw;
-        padding: 0.5vw 1vw;
-        border-radius: 1vw;
-        top: 4%;
+        width: 23vw;
+        top: 6%;
         left: 50%;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
         z-index: 10000;
         transition: opacity 0.8s ease;
         transform: translateX(-50%);
-        color: #662b36;
-        background-color: white;
         opacity: 0;
       }
 
-      .page-title-text {
-        font-size: 2vw;
-        line-height: 1.35;
+      .page-title-img {
+        width: 100%;
+        height: auto;
+        display: block;
       }
 
       .pranam-link {
@@ -129,10 +118,7 @@
       <span data-lang-key="pranam"></span>
     </a>
     <div class="page-title">
-      <div class="page-title-text">
-        <b data-lang-key="title"></b><br />
-        <span data-lang-key="sub-title"></span>
-      </div>
+      <img class="page-title-img" src="./assets/images/title.png" alt="" />
     </div>
 
     <div class="language-container">

@@ -410,6 +410,12 @@ function setActiveButton(activeBtn) {
   activeBtn?.classList.add("active");
 }
 
+const TITLE_IMAGES = {
+  English: "./assets/images/title.png",
+  Hindi: "./assets/images/titlehi.png",
+  Gujarati: "./assets/images/titlegj.png",
+};
+
 function applyLanguage(lang, save = true) {
   const langData = translations[lang];
 
@@ -430,6 +436,11 @@ function applyLanguage(lang, save = true) {
   } else if (lang === "Gujarati") {
     document.body.setAttribute("data-lang", "gu");
     setActiveButton(btnGu);
+  }
+
+  const pageTitleImg = document.querySelector(".page-title-img");
+  if (pageTitleImg && TITLE_IMAGES[lang]) {
+    pageTitleImg.src = TITLE_IMAGES[lang];
   }
 
   document.querySelectorAll("[data-lang-key]").forEach((el) => {

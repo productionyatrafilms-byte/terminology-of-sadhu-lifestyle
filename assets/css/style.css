@@ -117,60 +117,19 @@ body[data-lang="gu"] {
 
 .page-title {
   position: absolute;
-  border: 0.2vw solid #662B36;
-  width: 18vw;
-  height: 7.5vw;
-  padding: 0.5vw 1vw;
-  border-radius: 1vw;
-  top: 1%;
+  width: 23vw;
+  top: 3%;
   left: 50%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   z-index: 10000;
   transition: opacity 3s ease;
   transform: translateX(-50%);
-  color: #662B36;
-  background-color: white;
   opacity: 0;
 }
 
-.page-title-text {
-  font-size: 2vw;
-  line-height: 1.35;
-  text-align: center;
-  font-family: "KatibehRegular";
-}
-
-.page-title-text b {
-  font-weight: bolder;
-  font-size: 1.3em;
-}
-
-body[data-lang="hi"] .page-title-text,
-body[data-lang="hi"] .page-title-text span {
-  font-family: "ITFDevanagari" !important;
-  font-weight: 400 !important;
-}
-
-body[data-lang="hi"] .page-title-text b {
-  font-family: sans-serif !important;
-  font-weight: 900 !important;
-  font-size: 1.8vw !important;
-}
-
-body[data-lang="gu"] .page-title-text,
-body[data-lang="gu"] .page-title-text span {
-  font-family: "NotoSansGujaratiRegular" !important;
-  font-weight: 400 !important;
-}
-
-body[data-lang="gu"] .page-title-text b {
-  font-family: "NotoSansGujaratiBold" !important;
-  font-weight: 700 !important;
+.page-title-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 
