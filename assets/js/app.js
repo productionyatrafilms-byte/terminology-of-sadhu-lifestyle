@@ -182,6 +182,28 @@ function loadVideo(slideIndex) {
   }, VIDEO_FADE_OUT);
 }
 
+// ── Play the active slide's wrong/right videos, pause the rest ────────────
+function syncPointVideos(index) {
+  document.querySelectorAll("#mySwiper .swiper-slide").forEach((slide, i) => {
+    const wrongVideo = slide.querySelector(".wrong-video");
+    const rightVideo = slide.querySelector(".right-video");
+
+    if (i === index) {
+      [wrongVideo, rightVideo].forEach((video) => {
+        if (!video) return;
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      });
+    } else {
+      [wrongVideo, rightVideo].forEach((video) => {
+        if (!video) return;
+        video.pause();
+        video.currentTime = 0;
+      });
+    }
+  });
+}
+
 // ── Update nav button visibility ───────────────────────────────────────────
 function updateNavButtons(index) {
   btnPrev.classList.toggle("hidden", index === 0);
@@ -225,6 +247,7 @@ function initSwiper() {
       init() {
         updatePagination(0);
         updateNavButtons(0);
+        syncPointVideos(0);
 
         setTimeout(() => {
           adjustSwiperHeight();
@@ -237,6 +260,7 @@ function initSwiper() {
         updatePagination(idx);
         updateNavButtons(idx);
         loadVideo(idx);
+        syncPointVideos(idx);
 
         setTimeout(() => {
           adjustSwiperHeight();

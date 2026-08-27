@@ -27,11 +27,17 @@
       .page-title {
         position: absolute;
         border: 0.2vw solid #662b36;
+        width: 18vw;
+        height: 7.5vw;
         padding: 0.5vw 1vw;
         border-radius: 1vw;
         top: 4%;
         left: 50%;
-        height: auto;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
         z-index: 10000;
         transition: opacity 0.8s ease;
@@ -41,16 +47,9 @@
         opacity: 0;
       }
 
-      .page-title .title {
-        font-size: 4vw;
-        text-align: center;
-        display: block;
-        font-weight: bolder !important;
-      }
-
-      .sub-title {
-        font-size: 2vw !important;
-        font-weight: 400 !important;
+      .page-title-text {
+        font-size: 2vw;
+        line-height: 1.35;
       }
 
       .pranam-link {
@@ -130,8 +129,10 @@
       <span data-lang-key="pranam"></span>
     </a>
     <div class="page-title">
-      <span class="title" data-lang-key="title"></span>
-      <span class="sub-title" data-lang-key="sub-title"></span>
+      <div class="page-title-text">
+        <b data-lang-key="title"></b><br />
+        <span data-lang-key="sub-title"></span>
+      </div>
     </div>
 
     <div class="language-container">
@@ -190,98 +191,136 @@
           <div class="swiper-wrapper">
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-1"></div>
               <div class="slide-sub-text" data-lang-key="slide-1.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-2"></div>
               <div class="slide-sub-text" data-lang-key="slide-2.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-3"></div>
               <div class="slide-sub-text" data-lang-key="slide-3.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-4"></div>
               <div class="slide-sub-text" data-lang-key="slide-4.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-5"></div>
               <div class="slide-sub-text" data-lang-key="slide-5.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-6"></div>
               <div class="slide-sub-text" data-lang-key="slide-6.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-7"></div>
               <div class="slide-sub-text" data-lang-key="slide-7.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-8"></div>
               <div class="slide-sub-text" data-lang-key="slide-8.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-9"></div>
               <div class="slide-sub-text" data-lang-key="slide-9.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-10"></div>
               <div class="slide-sub-text" data-lang-key="slide-10.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-11"></div>
               <div class="slide-sub-text" data-lang-key="slide-11.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-12"></div>
               <div class="slide-sub-text" data-lang-key="slide-12.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-13"></div>
               <div class="slide-sub-text" data-lang-key="slide-13.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-14"></div>
               <div class="slide-sub-text" data-lang-key="slide-14.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-15"></div>
               <div class="slide-sub-text" data-lang-key="slide-15.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-16"></div>
               <div class="slide-sub-text" data-lang-key="slide-16.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-17"></div>
               <div class="slide-sub-text" data-lang-key="slide-17.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-18"></div>
               <div class="slide-sub-text" data-lang-key="slide-18.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
             <div class="swiper-slide">
+              <video class="wrong-video" src="./assets/videos/wrong.mp4" muted playsinline loop></video>
               <div class="slide-text" data-lang-key="slide-19"></div>
               <div class="slide-sub-text" data-lang-key="slide-19.1"></div>
+              <video class="right-video" src="./assets/videos/right.mp4" muted playsinline loop></video>
             </div>
 
           </div>

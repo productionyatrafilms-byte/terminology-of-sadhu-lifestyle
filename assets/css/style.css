@@ -48,6 +48,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "NotoSansGujaratiBold";
+  src: url("../../fonts/NotoSansGujarati-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 *,
 *::before,
@@ -110,12 +118,17 @@ body[data-lang="gu"] {
 .page-title {
   position: absolute;
   border: 0.2vw solid #662B36;
-  /* width: 30%; */
+  width: 18vw;
+  height: 7.5vw;
   padding: 0.5vw 1vw;
   border-radius: 1vw;
   top: 1%;
   left: 50%;
-  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   z-index: 10000;
   transition: opacity 3s ease;
@@ -125,35 +138,39 @@ body[data-lang="gu"] {
   opacity: 0;
 }
 
-.page-title .title {
-  font-size: 4vw;
+.page-title-text {
+  font-size: 2vw;
+  line-height: 1.35;
   text-align: center;
-  display: block;
-  font-weight: bolder !important;
   font-family: "KatibehRegular";
 }
 
-.page-title .sub-title {
-  font-size: 2vw !important;
+.page-title-text b {
+  font-weight: bolder;
+  font-size: 1.3em;
+}
+
+body[data-lang="hi"] .page-title-text,
+body[data-lang="hi"] .page-title-text span {
+  font-family: "ITFDevanagari" !important;
   font-weight: 400 !important;
-  font-family: "KhmerKn";
-  text-align: center;
 }
 
-[data-lang="hi"] .page-title .title {
-  font-size: 2.5vw;
+body[data-lang="hi"] .page-title-text b {
+  font-family: sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 1.8vw !important;
 }
 
-[data-lang="hi"] .page-title .sub-title {
-  font-size: 1.3vw !important;
+body[data-lang="gu"] .page-title-text,
+body[data-lang="gu"] .page-title-text span {
+  font-family: "NotoSansGujaratiRegular" !important;
+  font-weight: 400 !important;
 }
 
-[data-lang="gu"] .page-title .title {
-  font-size: 2.5vw;
-}
-
-[data-lang="gu"] .page-title .sub-title {
-  font-size: 1.3vw !important;
+body[data-lang="gu"] .page-title-text b {
+  font-family: "NotoSansGujaratiBold" !important;
+  font-weight: 700 !important;
 }
 
 
@@ -538,7 +555,7 @@ main img {
 
 .swiper-wrapper-box {
   position: relative;
-  width: 70%;
+  width: 90%;
   height: 25vw !important;
   display: flex;
   flex-direction: column;
@@ -567,7 +584,7 @@ main img {
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
-  padding: 1vw 7vw;
+  padding: 1vw 2vw;
   box-sizing: border-box;
 }
 
@@ -588,7 +605,7 @@ main img {
   font-size: 3.5vw;
   color: #B1492D;
   text-align: center;
-  line-height: 1.21;
+  line-height: 0.95;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -602,8 +619,8 @@ main img {
   font-size: 3.5vw;
   color: #5E6100;
   text-align: center;
-  line-height: 1.2;
-  padding-top: 1.5vw;
+  line-height: 0.95;
+  padding-top: 1.2vw;
   width: 100%;
   transition: opacity 0.6s ease;
 }
@@ -612,13 +629,36 @@ body[data-lang="hi"] .slide-text, body[data-lang="hi"] .slide-sub-text{
   font-family: "ITFDevanagari"!important;
     font-size: 2.8vw!important;
       font-weight: bolder!important;
+      line-height: 1.21!important;
 
 
 }
+body[data-lang="hi"] .slide-sub-text {
+  padding-top: 1.5vw;
+}
+
 body[data-lang="gu"] .slide-text, body[data-lang="gu"] .slide-sub-text{
   font-family: "ITFDevanagari"!important;
       font-size: 2.5vw!important;
+      line-height: 1.2!important;
 
+}
+body[data-lang="gu"] .slide-sub-text {
+  padding-top: 1.5vw;
+}
+
+.wrong-video,
+.right-video {
+  width: 3.5vw;
+  height: 3.5vw;
+  object-fit: contain;
+  display: block;
+  margin: 0.4vw 0;
+  pointer-events: none;
+}
+
+.right-video {
+  margin-top: 1.5vw;
 }
 
 .swiper-wrapper {
@@ -656,7 +696,7 @@ body[data-lang="gu"] .slide-text, body[data-lang="gu"] .slide-sub-text{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 110%;
+  width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
