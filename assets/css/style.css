@@ -661,6 +661,10 @@ body[data-lang="gu"] .slide-sub-text {
   margin-top: 1.5vw;
 }
 
+.wrong-video {
+  margin-bottom: 1.5vw;
+}
+
 .swiper-wrapper {
   height: 70% !important;
   display: flex !important;
