@@ -140,6 +140,7 @@
       document.documentElement.setAttribute("data-lang", "en");
     }
   </script>
+  <script src="./assets/js/data.js"></script>
   <script>
     const btnEn = document.querySelector(".english");
     const btnHi = document.querySelector(".hindi");
@@ -208,21 +209,8 @@
       setLangAttribute(savedLang);
       setActiveButtonByLang(savedLang);
 
-      fetch("./assets/json/data.json", { cache: "no-store" })
-        .then((res) => {
-          if (!res.ok) {
-            throw new Error("Failed to load JSON");
-          }
-          return res.json();
-        })
-        .then((data) => {
-          translations = data;
-          applyLanguage(savedLang, false);
-        })
-        .catch((err) => {
-          console.error("Error loading translations:", err);
-          document.body.classList.remove("lang-loading");
-        });
+      translations = typeof data !== "undefined" ? data : {};
+      applyLanguage(savedLang, false);
     });
 
     btnEn.addEventListener("click", () => applyLanguage("English"));
