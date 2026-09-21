@@ -384,13 +384,20 @@ main img {
   line-height: 2;
 }
 
+[data-lang="en"] .circle .title {
+  font-family: "BalooRegular";
+  font-size: 3.5vw;
+  line-height: 1.1;
+}
+
 [data-lang="hi"] .circle .title {
   font-size:3.5vw!important;
+  line-height: 1.1!important;
 }
 
 [data-lang="gu"] .circle .title {
   font-size: 3.5vw!important;
-  line-height: 2!important;
+  line-height: 1.1!important;
 }
 
 [data-lang="gu"] .circle .sub-title {
