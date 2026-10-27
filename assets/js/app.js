@@ -191,12 +191,14 @@ function syncPointVideos(index) {
     if (i === index) {
       [wrongVideo, rightVideo].forEach((video) => {
         if (!video) return;
+        video.preload = "auto";
         video.currentTime = 0;
         video.play().catch(() => {});
       });
     } else {
       [wrongVideo, rightVideo].forEach((video) => {
         if (!video) return;
+        video.preload = "none";
         video.pause();
         video.currentTime = 0;
       });
